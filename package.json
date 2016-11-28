@@ -1,0 +1,69 @@
+{
+  "name": "pokemonsay",
+  "description": "Pokemon version of cowsay with CLI and API.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfrankland/pokemonsay.git"
+  },
+  "keywords": [
+    "pokemon",
+    "pokemonsay",
+    "cow",
+    "cowsay",
+    "fortune",
+    "xterm"
+  ],
+  "author": "Dylan Frankland <dylan@frankland.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfrankland/pokemonsay/issues"
+  },
+  "homepage": "https://github.com/dfrankland/pokemonsay#readme",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
+  "files": [
+    "dist/index.js",
+    "dist/cli.js",
+    "dist/pokemon.json"
+  ],
+  "scripts": {
+    "scrape": "babel-node ./tools/scrape.js",
+    "build-pokemon": "mkdir dist && babel-node ./tools/build.js",
+    "build-cli": "babel ./src/cli.js -o ./dist/cli.js",
+    "build-api": "babel ./src/index.js -o ./dist/index.js",
+    "build": "npm run build-pokemon && npm run build-cli && npm run build-api",
+    "start": "npm run build && node ./dist/cli.js"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "boxen": "^0.8.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-modern-node": "^3.2.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "cheerio": "^0.22.0",
+    "image-xterm-loader": "^1.0.10",
+    "memory-fs": "^0.3.0",
+    "node-fetch": "^1.6.3",
+    "progress": "^1.1.8",
+    "require-from-string": "^1.2.1",
+    "webpack": "^1.13.3"
+  },
+  "babel": {
+    "plugins": [
+      "transform-runtime"
+    ],
+    "presets": [
+      [
+        "modern-node",
+        {
+          "version": "0.12"
+        }
+      ],
+      "stage-0"
+    ]
+  }
+}
