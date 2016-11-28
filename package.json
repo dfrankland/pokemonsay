@@ -21,16 +21,17 @@
   },
   "homepage": "https://github.com/dfrankland/pokemonsay#readme",
   "main": "./dist/index.js",
-  "bin": "./dist/cli.js",
+  "bin": "./dist/cli-bootstrap.js",
   "files": [
     "dist/index.js",
     "dist/cli.js",
+    "dist/cli-bootstrap.js",
     "dist/pokemon.json"
   ],
   "scripts": {
     "scrape": "babel-node ./tools/scrape.js",
-    "build-pokemon": "mkdir dist && babel-node ./tools/build.js",
-    "build-cli": "babel ./src/cli.js -o ./dist/cli.js",
+    "build-pokemon": "rm -rf dist && mkdir dist && babel-node ./tools/build.js",
+    "build-cli": "babel ./src/cli.js -o ./dist/cli.js && cp ./src/cli-bootstrap.js ./dist",
     "build-api": "babel ./src/index.js -o ./dist/index.js",
     "build": "npm run build-pokemon && npm run build-cli && npm run build-api",
     "start": "npm run build && node ./dist/cli.js"
