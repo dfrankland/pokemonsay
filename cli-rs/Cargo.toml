@@ -10,3 +10,6 @@ image = { version = "0.24.8", default-features = false, features = ["png"] }
 lazy_static = "1.4.0"
 rand = "0.8.5"
 viuer = { version = "0.7.1" }
+
+[build-dependencies]
+quote = "1.0.35"
