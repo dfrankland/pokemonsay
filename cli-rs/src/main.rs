@@ -6,8 +6,8 @@ include!(concat!(env!("OUT_DIR"), "/files.rs"));
 
 fn main() {
     let mut rng = thread_rng();
-    let index = rng.gen_range(0..SPRITES.len());
-    let sprite_bytes = SPRITES.values().skip(index).next().unwrap();
+    let nth = rng.gen_range(0..SPRITES.len());
+    let sprite_bytes = SPRITES.values().nth(nth).unwrap();
     let sprite_image = DynamicImage::from_decoder(PngDecoder::new(*sprite_bytes).unwrap()).unwrap();
     print(
         &sprite_image,

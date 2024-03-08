@@ -4,7 +4,10 @@ use reqwest::{
     Url,
 };
 use sha1_smol::Sha1;
-use std::{env, fs, path::PathBuf};
+use std::{
+    env, fs,
+    path::{Path, PathBuf},
+};
 
 mod mediawiki_api {
     use anyhow::Result;
@@ -63,7 +66,7 @@ fn unblock_cloudflare(request_builder: RequestBuilder) -> RequestBuilder {
 }
 
 pub fn update_file(
-    base_bath: &PathBuf,
+    base_bath: &Path,
     image: &mediawiki_api::Image,
     blocking_client: &BlockingClient,
 ) -> Result<()> {
@@ -96,7 +99,7 @@ pub fn update_file(
 }
 
 fn main() -> Result<()> {
-    let base_path = env::args_os().skip(1).next().map_or_else(
+    let base_path = env::args_os().nth(1).map_or_else(
         || env::current_dir().map(|p| p.join("files")),
         |p| Ok(PathBuf::from(p)),
     )?;
