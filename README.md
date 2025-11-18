@@ -80,3 +80,9 @@ property is an object that will override the default settings for [`boxen`][5].
 [3]: https://github.com/matheuss/parrotsay-api
 [4]: http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number
 [5]: https://github.com/sindresorhus/boxen
+
+```bash
+/Users/dylan/.cargo/bin/sea generate entity --database-url sqlite://./result/db.sqlite3 -
+-output-dir (realpath ./src/pokeapi_db/) --ignore-tables auth_group,auth_group_permissions,auth_permission,auth_user,auth_user_group
+s,auth_user_user_permissions,django_admin_log,django_content_type,django_migrations,django_session,django_site --with-prelude all-allow-unused-imports
+```
