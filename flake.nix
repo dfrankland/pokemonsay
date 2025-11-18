@@ -6,11 +6,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     dream2nix.url = "github:nix-community/dream2nix";
     dream2nix.inputs.nixpkgs.follows = "nixpkgs";
+    crane.url = "github:ipetkov/crane";
   };
 
   outputs = inputs @ {
     flake-parts,
     dream2nix,
+    crane,
     ...
   }:
     flake-parts.lib.mkFlake {inherit inputs;} {
@@ -35,19 +37,61 @@
         # system.
 
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages = {
-          pokeapi = dream2nix.lib.evalModules {
-            packageSets.nixpkgs = pkgs;
-            modules = [
-              ./pokeapi.nix
-              {
-                paths.projectRoot = ./.;
-                paths.projectRootFile = "flake.nix";
-                paths.package = ./.;
-              }
-            ];
+        packages =
+          let
+            pokeapi = dream2nix.lib.evalModules {
+              packageSets.nixpkgs = pkgs;
+              modules = [
+                ./pokeapi.nix
+                {
+                  paths.projectRoot = ./.;
+                  paths.projectRootFile = "flake.nix";
+                  paths.package = ./.;
+                }
+              ];
+            };
+            pokeapi-full = pkgs.stdenv.mkDerivation {
+              name = "pokeapi-full";
+              phases = [ "buildPhase" ];
+              buildPhase = ''
+                mkdir -p $out/sprites
+                cp ${pokeapi}/db.sqlite3 $out/
+                cp ${pokeapi}/sprites/pokemon/*.png $out/sprites
+              '';
+            };
+            pokeapi-optimized = pkgs.stdenv.mkDerivation {
+              name = "pokeapi-optimized";
+              phases = [ "buildPhase" ];
+              buildInputs = [ pkgs.sqlite ];
+              buildPhase = ''
+                mkdir -p $out/sprites
+                sqlite3 ${pokeapi}/db.sqlite3 ".dump pokemon_v2_pokemon pokemon_v2_pokemonsprites pokemon_v2_pokemonspecies pokemon_v2_pokemonspeciesname pokemon_v2_language" | sqlite3 $out/db.sqlite3
+                sqlite3 $out/db.sqlite3 < ${./pokeapi-optimize-db-table.sql} > $out/optimize.sql
+                sqlite3 $out/db.sqlite3 < $out/optimize.sql
+                rm $out/optimize.sql
+                cp -r ${pokeapi}/sprites/pokemon/*.png $out/sprites
+              '';
+            };
+            craneLib = crane.mkLib pkgs;
+            sea-orm-cli = craneLib.buildPackage {
+              src = pkgs.fetchCrate {
+                pname = "sea-orm-cli";
+                version = "2.0.0-rc.18";
+                sha256 = "sha256-5tSvomUB6p1XbQUFJp3+DNzIWAtXgpUDKMoUNQZZ7Ng=";
+              };
+              strictDeps = true;
+            };
+            pokemonsay = craneLib.buildPackage {
+              pname = "pokemonsay";
+              meta.mainProgram = "pokemonsay";
+              src = craneLib.cleanCargoSource ./.;
+              cargoExtraArgs = "--features embed-db,embed-sprites";
+              EMBED_DB_PATH = "${pokeapi-optimized}/db.sqlite3";
+              EMBED_SPRITES_PATH = "${pokeapi-optimized}/sprites";
+            };
+          in {
+            inherit pokeapi pokeapi-full pokeapi-optimized sea-orm-cli pokemonsay;
           };
-        };
       };
       flake = {
         # The usual flake attributes can be defined here, including system-

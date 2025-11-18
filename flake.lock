@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "crane": {
+      "locked": {
+        "lastModified": 1763511871,
+        "narHash": "sha256-KKZWi+ij7oT0Ag8yC6MQkzfHGcytyjMJDD+47ZV1YNU=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "099f9014bc8d0cd6e445470ea1df0fd691d5a548",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "dream2nix": {
       "inputs": {
         "nixpkgs": [
@@ -133,6 +148,7 @@
     },
     "root": {
       "inputs": {
+        "crane": "crane",
         "dream2nix": "dream2nix",
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs"
