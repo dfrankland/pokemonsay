@@ -1,0 +1,53 @@
+[devshell]
+packages = ["alejandra", "cargo-release", "taplo"]
+
+[[commands]]
+name = "build-all"
+category = "building"
+help = "Build the project"
+command = """\
+  nix build '.#pokeapi-optimized'; \
+  cargo build; \
+  cargo doc; \
+"""
+
+[[commands]]
+name = "build-cli"
+category = "building"
+help = "Build the CLI"
+command = "cargo build"
+
+[[commands]]
+name = "build-docs"
+category = "building"
+help = "Build the project docs"
+command = "cargo doc --open"
+
+[[commands]]
+name = "test-all"
+category = "testing"
+help = "Run the test suite"
+command = "cargo test"
+
+[[commands]]
+name = "check-all"
+category = "linting"
+help = "Check all files (nix, rust, toml) in the project"
+command = """\
+  alejandra --check .; \
+  cargo fmt --check; \
+  cargo clippy; \
+  cargo doc; \
+  taplo check devshell.toml Cargo.toml "*/Cargo.toml"; \
+"""
+
+[[commands]]
+name = "format-all"
+category = "linting"
+help = "Format all files (nix, rust, toml) in the project"
+command = """\
+  alejandra .; \
+  cargo clippy --fix --allow-dirty; \
+  cargo fmt; \
+  taplo fmt devshell.toml Cargo.toml "*/Cargo.toml"; \
+"""
