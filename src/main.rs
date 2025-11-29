@@ -1,8 +1,8 @@
+mod db;
+mod http;
 mod image_util;
 #[allow(clippy::all, dead_code)]
 mod pokeapi_db;
-mod http;
-mod db;
 
 use std::{
     io::{self, BufRead, IsTerminal},
@@ -11,15 +11,14 @@ use std::{
 
 #[cfg(not(feature = "embed-db"))]
 use clap::builder::ArgPredicate;
-
 use clap::{Parser, ValueEnum};
 use image::GenericImageView;
 use serde::Serialize;
 use tinytemplate::TinyTemplate;
 
 use crate::{
-    db::{Db, DEFAULT_POKEMON_QUERY, DEFAULT_SPRITES_QUERY, DEFAULT_SPECIES_NAME_QUERY},
-    http::{Http, DEFAULT_GRAPHQL_QUERY},
+    db::{DEFAULT_POKEMON_QUERY, DEFAULT_SPECIES_NAME_QUERY, DEFAULT_SPRITES_QUERY, Db},
+    http::{DEFAULT_GRAPHQL_QUERY, Http},
 };
 
 const DEFAULT_POKEMONSAY_TEMPLATE: &str = "Wild {pokemon} appeared!";
@@ -33,24 +32,50 @@ struct PokemonsayTemplateContext {
 #[command(version, about, long_about = None)]
 struct Opt {
     #[cfg(feature = "embed-db")]
-    #[arg(long, default_value = "db", help = "The `db` option uses the database embedded within the CLI unless `db-path` is provided.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour.")]
+    #[arg(
+        long,
+        default_value = "db",
+        help = "The `db` option uses the database embedded within the CLI unless `db-path` is provided.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour."
+    )]
     query_method: QueryMethod,
     #[cfg(not(feature = "embed-db"))]
-    #[arg(long, default_value = "http", default_value_if("db_path", ArgPredicate::IsPresent, Some("db")), help = "The `db` option requires the database provided by `db-path`.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour.")]
+    #[arg(
+        long,
+        default_value = "http",
+        default_value_if("db_path", ArgPredicate::IsPresent, Some("db")),
+        help = "The `db` option requires the database provided by `db-path`.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour."
+    )]
     query_method: QueryMethod,
 
     #[cfg(feature = "embed-db")]
-    #[arg(long, env = "POKEMONSAY_DB_PATH", help = "Path to the PokeAPI SQLite database. Uses the database embedded within the CLI by default.")]
+    #[arg(
+        long,
+        env = "POKEMONSAY_DB_PATH",
+        help = "Path to the PokeAPI SQLite database. Uses the database embedded within the CLI by default."
+    )]
     db_path: Option<PathBuf>,
     #[cfg(not(feature = "embed-db"))]
-    #[arg(long, env = "POKEMONSAY_DB_PATH", required_if_eq("query_method", "db"), help = "Path to the PokeAPI SQLite database. Required if the CLI queries the database with `query-method db`.")]
+    #[arg(
+        long,
+        env = "POKEMONSAY_DB_PATH",
+        required_if_eq("query_method", "db"),
+        help = "Path to the PokeAPI SQLite database. Required if the CLI queries the database with `query-method db`."
+    )]
     db_path: Option<PathBuf>,
 
     #[cfg(feature = "embed-sprites")]
-    #[arg(long, default_value = "embedded", help = "The `embedded` option uses the images embedded within the CLI.\nThe `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`.")]
+    #[arg(
+        long,
+        default_value = "embedded",
+        help = "The `embedded` option uses the images embedded within the CLI.\nThe `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`."
+    )]
     sprites_retrieval_method: SpriteRetrievalMethod,
     #[cfg(not(feature = "embed-sprites"))]
-    #[arg(long, default_value = "http", help = "The `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`.")]
+    #[arg(
+        long,
+        default_value = "http",
+        help = "The `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`."
+    )]
     sprites_retrieval_method: SpriteRetrievalMethod,
 
     #[arg(long, default_value = DEFAULT_POKEMON_QUERY, hide_default_value = true, help = format!("Default value:\n```sql{}```", DEFAULT_POKEMON_QUERY))]
@@ -93,19 +118,22 @@ async fn main() -> anyhow::Result<()> {
     let pokemon = match opt.query_method {
         QueryMethod::Db => {
             let db = Db::new(&opt.db_path).await?;
-            db.get_pokemon(&opt.db_pokemon_query, &opt.db_species_name_query, &opt.db_sprites_query).await?
-        },
+            db.get_pokemon(
+                &opt.db_pokemon_query,
+                &opt.db_species_name_query,
+                &opt.db_sprites_query,
+            )
+            .await?
+        }
         QueryMethod::Http => {
             let http = Http::new();
             http.get_pokemon(opt.http_graphql_query).await?
-        },
+        }
     };
 
     let sprite_bytes = match opt.sprites_retrieval_method {
         #[cfg(feature = "embed-sprites")]
-        SpriteRetrievalMethod::Embedded => {
-            Db::get_sprites(&pokemon.sprite_url)?
-        },
+        SpriteRetrievalMethod::Embedded => Db::get_sprites(&pokemon.sprite_url)?,
         SpriteRetrievalMethod::Http => {
             let http = Http::new();
             http.get_sprite(&pokemon.sprite_url).await?
