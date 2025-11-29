@@ -2,6 +2,13 @@
 name = "pokemonsay"
 version = "0.1.0"
 edition = "2024"
+description = "Pokemon version of cowsay"
+license = "MIT"
+repository = "https://github.com/dfrankland/pokemonsay"
+documentation = "https://docs.rs/pokemonsay"
+readme = "README.md"
+categories = ["command-line-utilities"]
+keywords = ["cowsay", "customization", "fortune", "terminal", "pokemon"]
 include = ["src/*", "result/db.sqlite3"]
 
 [dependencies]
