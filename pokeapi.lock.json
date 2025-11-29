@@ -3,10 +3,10 @@
     "sources": {
       "asgiref": {
         "is_direct": false,
-        "sha256": "aef8a81283a34d0ab31630c9b7dfe70c812c95eba78171367ca8745e88124734",
+        "sha256": "1db9021efadb0d9512ce8ffaf72fcef601c7b73a8807a1bb2ef143dc6b14846d",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/17/9c/fc2331f538fbf7eedba64b2052e99ccf9ba9d6888e2f41441ee28847004b/asgiref-3.10.0-py3-none-any.whl",
-        "version": "3.10.0"
+        "url": "https://files.pythonhosted.org/packages/91/be/317c2c55b8bbec407257d45f5c8d1b6867abc76d12043f2d3d58c538a4ea/asgiref-3.11.0-py3-none-any.whl",
+        "version": "3.11.0"
       },
       "attrs": {
         "is_direct": false,
@@ -157,10 +157,10 @@
       },
       "redis": {
         "is_direct": false,
-        "sha256": "4977af3c7d67f8f0eb8b6fec0dafc9605db9343142f634041fb0235f67c0588a",
+        "sha256": "23c52b208f92b56103e17c5d06bdc1a6c2c0b3106583985a76a18f83b265de2b",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/e9/97/9f22a33c475cda519f20aba6babb340fb2f2254a02fb947816960d1e669a/redis-7.0.1-py3-none-any.whl",
-        "version": "7.0.1"
+        "url": "https://files.pythonhosted.org/packages/89/f0/8956f8a86b20d7bb9d6ac0187cf4cd54d8065bc9a1a09eb8011d4d326596/redis-7.1.0-py3-none-any.whl",
+        "version": "7.1.0"
       },
       "referencing": {
         "is_direct": false,
@@ -171,10 +171,10 @@
       },
       "rpds-py": {
         "is_direct": false,
-        "sha256": "edd267266a9b0448f33dc465a97cfc5d467594b600fe28e7fa2f36450e03053a",
+        "sha256": "521807963971a23996ddaf764c682b3e46459b3c58ccd79fefbe16718db43154",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/00/34/1c61da1b25592b86fd285bd7bd8422f4c9d748a7373b46126f9ae792a004/rpds_py-0.28.0-cp313-cp313-macosx_11_0_arm64.whl",
-        "version": "0.28.0"
+        "url": "https://files.pythonhosted.org/packages/b3/b3/0860cdd012291dc21272895ce107f1e98e335509ba986dd83d72658b82b9/rpds_py-0.29.0-cp313-cp313-macosx_11_0_arm64.whl",
+        "version": "0.29.0"
       },
       "six": {
         "is_direct": false,
@@ -185,10 +185,10 @@
       },
       "sqlparse": {
         "is_direct": false,
-        "sha256": "cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca",
+        "sha256": "99a9f0314977b76d776a0fcb8554de91b9bb8a18560631d6bc48721d07023dcb",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/a9/5c/bfd6bd0bf979426d405cc6e71eceb8701b148b16c21d2dc3c261efc61c7b/sqlparse-0.5.3-py3-none-any.whl",
-        "version": "0.5.3"
+        "url": "https://files.pythonhosted.org/packages/25/70/001ee337f7aa888fb2e3f5fd7592a6afc5283adb1ed44ce8df5764070f22/sqlparse-0.5.4-py3-none-any.whl",
+        "version": "0.5.4"
       },
       "unipath": {
         "is_direct": false,
