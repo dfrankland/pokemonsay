@@ -42,7 +42,7 @@
               })
         );
         pokeapi = dream2nix.lib.evalModules {
-          packageSets.nixpkgs = pkgs;
+          packageSets.nixpkgs = inputs.nixpkgs.legacyPackages.${system};
           modules = [
             ./pokeapi.nix
             {
