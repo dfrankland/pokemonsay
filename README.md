@@ -2,9 +2,9 @@
 
 Pokemon version of cowsay, powered by [PokeAPI][1].
 
-![][2]
+https://github.com/user-attachments/assets/36cc94e7-5bec-4235-88eb-1cf190d562b4
 
-Inspired by another [`pokemonsay`][3] and [`parrotsay-api`][4] I created this to
+Inspired by another [`pokemonsay`][2] and [`parrotsay-api`][3] I created this to
 quell my obsession with Pokemon and command line greetings.
 
 ## CLI
@@ -30,10 +30,9 @@ nix run 'github:dfrankland/pokemonsay'
 ## Previous version
 
 Looking for the previous version written in JavaScript? Find it on [the `v1`
-branch][5].
+branch][4].
 
 [1]: https://pokeapi.co/
-[2]: https://raw.githubusercontent.com/dfrankland/pokemonsay/master/demo.mp4
-[3]: https://github.com/possatti/pokemonsay
-[4]: https://github.com/matheuss/parrotsay-api
-[5]: https://github.com/dfrankland/pokemonsay/tree/v1
+[2]: https://github.com/possatti/pokemonsay
+[3]: https://github.com/matheuss/parrotsay-api
+[4]: https://github.com/dfrankland/pokemonsay/tree/v1
