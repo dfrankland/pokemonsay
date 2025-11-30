@@ -27,7 +27,13 @@ Or use the Nix flake:
 nix run 'github:dfrankland/pokemonsay'
 ```
 
+## Previous version
+
+Looking for the previous version written in JavaScript? Find it on [the `v1`
+branch][5].
+
 [1]: https://pokeapi.co/
 [2]: https://raw.githubusercontent.com/dfrankland/pokemonsay/master/demo.mp4
 [3]: https://github.com/possatti/pokemonsay
 [4]: https://github.com/matheuss/parrotsay-api
+[5]: https://github.com/dfrankland/pokemonsay/tree/v1
