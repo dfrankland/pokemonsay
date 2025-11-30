@@ -9,7 +9,7 @@ documentation = "https://docs.rs/pokemonsay"
 readme = "README.md"
 categories = ["command-line-utilities"]
 keywords = ["cowsay", "customization", "fortune", "terminal", "pokemon"]
-include = ["src/*", "result/db.sqlite3"]
+include = ["*.rs", "result/db.sqlite3"]
 
 [dependencies]
 anyhow = "1.0.100"
