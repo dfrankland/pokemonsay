@@ -86,6 +86,8 @@
           pname = "pokemonsay";
           meta.mainProgram = "pokemonsay";
           src = craneLib.cleanCargoSource ./.;
+          nativeBuildInputs = [pkgs.pkg-config];
+          buildInputs = [pkgs.openssl];
           cargoExtraArgs = "--features embed-db,embed-sprites";
           EMBED_DB_PATH = "${pokeapi-optimized}/db.sqlite3";
           EMBED_SPRITES_PATH = "${pokeapi-optimized}/sprites";
