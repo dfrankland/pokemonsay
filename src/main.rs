@@ -31,70 +31,99 @@ struct PokemonsayTemplateContext {
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Opt {
+    /// Specifies the method to use for fetching Pokemon data
+    ///
+    /// `db`: Uses the database (embedded in the CLI or provided via `--db-path`).
+    ///       Defaults to embedded database if available.
+    ///
+    /// `http`: Queries the PokeAPI GraphQL endpoint at `https://graphql.pokeapi.co/v1beta2`.
+    ///         Has a rate limit of 200 queries per hour.
     #[cfg(feature = "embed-db")]
-    #[arg(
-        long,
-        default_value = "db",
-        help = "The `db` option uses the database embedded within the CLI unless `db-path` is provided.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour."
-    )]
+    #[arg(long, default_value = "db")]
     query_method: QueryMethod,
+
+    /// Specifies the method to use for fetching Pokemon data
+    ///
+    /// `db`: Requires a database path to be provided via `--db-path`.
+    ///
+    /// `http`: Queries the PokeAPI GraphQL endpoint at `https://graphql.pokeapi.co/v1beta2`.
+    ///         Has a rate limit of 200 queries per hour.
     #[cfg(not(feature = "embed-db"))]
     #[arg(
         long,
         default_value = "http",
-        default_value_if("db_path", ArgPredicate::IsPresent, Some("db")),
-        help = "The `db` option requires the database provided by `db-path`.\nThe `http` option will query `https://graphql.pokeapi.co/v1beta2` which has a rate limit of 200 queries per hour."
+        default_value_if("db_path", ArgPredicate::IsPresent, Some("db"))
     )]
     query_method: QueryMethod,
 
+    /// Path to the PokeAPI SQLite database
+    ///
+    /// Can also be set via the `POKEMONSAY_DB_PATH` environment variable.
+    ///
+    /// Uses the database embedded within the CLI by default.
     #[cfg(feature = "embed-db")]
-    #[arg(
-        long,
-        env = "POKEMONSAY_DB_PATH",
-        help = "Path to the PokeAPI SQLite database. Uses the database embedded within the CLI by default."
-    )]
-    db_path: Option<PathBuf>,
-    #[cfg(not(feature = "embed-db"))]
-    #[arg(
-        long,
-        env = "POKEMONSAY_DB_PATH",
-        required_if_eq("query_method", "db"),
-        help = "Path to the PokeAPI SQLite database. Required if the CLI queries the database with `query-method db`."
-    )]
+    #[arg(long, env = "POKEMONSAY_DB_PATH")]
     db_path: Option<PathBuf>,
 
+    /// Path to the PokeAPI SQLite database
+    ///
+    /// Can also be set via the `POKEMONSAY_DB_PATH` environment variable.
+    ///
+    /// Required if the CLI queries the database with `query-method db`.
+    #[cfg(not(feature = "embed-db"))]
+    #[arg(long, env = "POKEMONSAY_DB_PATH", required_if_eq("query_method", "db"))]
+    db_path: Option<PathBuf>,
+
+    /// Specifies the method to use for retrieving Pokemon sprite images
+    ///
+    /// `embedded`: Uses sprite images embedded within the CLI.
+    ///
+    /// `http`: Downloads sprites from `https://raw.githubusercontent.com/PokeAPI/sprites/master`.
     #[cfg(feature = "embed-sprites")]
-    #[arg(
-        long,
-        default_value = "embedded",
-        help = "The `embedded` option uses the images embedded within the CLI.\nThe `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`."
-    )]
-    sprites_retrieval_method: SpriteRetrievalMethod,
-    #[cfg(not(feature = "embed-sprites"))]
-    #[arg(
-        long,
-        default_value = "http",
-        help = "The `http` option downloads images from `https://raw.githubusercontent.com/PokeAPI/sprites/master`."
-    )]
+    #[arg(long, default_value = "embedded")]
     sprites_retrieval_method: SpriteRetrievalMethod,
 
-    #[arg(long, default_value = DEFAULT_POKEMON_QUERY, hide_default_value = true, help = format!("Default value:\n```sql{}```", DEFAULT_POKEMON_QUERY))]
+    /// Specifies the method to use for retrieving Pokemon sprite images
+    ///
+    /// `http`: Downloads sprites from `https://raw.githubusercontent.com/PokeAPI/sprites/master`.
+    #[cfg(not(feature = "embed-sprites"))]
+    #[arg(long, default_value = "http")]
+    sprites_retrieval_method: SpriteRetrievalMethod,
+
+    #[arg(long, default_value = DEFAULT_POKEMON_QUERY, hide_default_value = true, help = format!("Custom SQL query to fetch Pokemon data from the database\n\nOnly used when `--query-method db` is set.\n\nDefault value:\n```sql{}```", DEFAULT_POKEMON_QUERY))]
     db_pokemon_query: String,
-    #[arg(long, default_value = DEFAULT_SPRITES_QUERY, hide_default_value = true, help = format!("Default value:\n```sql{}```", DEFAULT_SPRITES_QUERY))]
+
+    #[arg(long, default_value = DEFAULT_SPRITES_QUERY, hide_default_value = true, help = format!("Custom SQL query to fetch Pokemon sprite URLs from the database\n\nOnly used when `--query-method db` is set.\n\nDefault value:\n```sql{}```", DEFAULT_SPRITES_QUERY))]
     db_sprites_query: String,
-    #[arg(long, default_value = DEFAULT_SPECIES_NAME_QUERY, hide_default_value = true, help = format!("Default value:\n```sql{}```", DEFAULT_SPECIES_NAME_QUERY))]
+
+    #[arg(long, default_value = DEFAULT_SPECIES_NAME_QUERY, hide_default_value = true, help = format!("Custom SQL query to fetch Pokemon species names from the database\n\nOnly used when `--query-method db` is set.\n\nDefault value:\n```sql{}```", DEFAULT_SPECIES_NAME_QUERY))]
     db_species_name_query: String,
 
-    #[arg(long, default_value = DEFAULT_GRAPHQL_QUERY, hide_default_value = true, help = format!("Default value:\n```graphql{}```", DEFAULT_GRAPHQL_QUERY))]
+    #[arg(long, default_value = DEFAULT_GRAPHQL_QUERY, hide_default_value = true, help = format!("Custom GraphQL query to fetch Pokemon data\n\nOnly used when `--query-method http` is set.\n\nDefault value:\n```graphql{}```", DEFAULT_GRAPHQL_QUERY))]
     http_graphql_query: String,
 
+    /// Template for the message displayed below the Pokemon sprite
+    ///
+    /// Uses TinyTemplate syntax with `{pokemon}` as the Pokemon name placeholder.
+    ///
+    /// Can be overridden by piping text to stdin.
     #[arg(long, default_value = DEFAULT_POKEMONSAY_TEMPLATE)]
     pokemonsay_template: String,
 
+    /// Whether to crop transparent pixels from the Pokemon sprite background
+    ///
+    /// When enabled, removes transparent padding around the sprite image for a tighter display.
     #[arg(long)]
     crop_sprite_transparent_bg: bool,
 
-    #[arg(long, help = "A value of `0` will disable setting a max dimension. If your terminal does not support displaying images, this will default to `0`.", default_value = {if viuer::get_kitty_support() != viuer::KittySupport::None || viuer::is_iterm_supported() || viuer::is_sixel_supported() { "30" } else { "0" }})]
+    /// Maximum dimension (width or height) for displaying the Pokemon sprite in the terminal
+    ///
+    /// A value of `0` will disable setting a max dimension.
+    ///
+    /// For terminals that don't support graphics protocols, defaults to `0`.
+    ///
+    /// For terminals that support Kitty, iTerm2, or Sixel graphics protocols, defaults to `30`.
+    #[arg(long, default_value = {if viuer::get_kitty_support() != viuer::KittySupport::None || viuer::is_iterm_supported() || viuer::is_sixel_supported() { "30" } else { "0" }})]
     max_sprite_dimension: u32,
 }
 
