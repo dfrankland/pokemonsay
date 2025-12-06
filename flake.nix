@@ -36,7 +36,7 @@
         craneLib = (inputs.crane.mkLib pkgs).overrideToolchain (
           p:
           # NB: use nightly for https://github.com/rust-lang/rustfmt/issues/6241
-            p.rust-bin.selectLatestNightlyWith (toolchain:
+            (inputs.rust-overlay.lib.mkRustBin {} p).selectLatestNightlyWith (toolchain:
               toolchain.default.override {
                 extensions = ["rust-src"];
               })
@@ -93,13 +93,6 @@
           EMBED_SPRITES_PATH = "${pokeapi-optimized}/sprites";
         };
       in {
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = [
-            inputs.rust-overlay.overlays.default
-          ];
-        };
-
         packages = {
           default = pokemonsay;
           inherit pokeapi pokeapi-full pokeapi-optimized sea-orm-cli pokemonsay;
