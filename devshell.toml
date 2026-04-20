@@ -1,5 +1,5 @@
 [devshell]
-packages = ["alejandra", "cargo-release", "taplo"]
+packages = ["alejandra", "cargo-edit", "cargo-release", "taplo"]
 
 [[commands]]
 name = "build-all"
