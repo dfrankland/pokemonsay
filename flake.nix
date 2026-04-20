@@ -77,8 +77,8 @@
         sea-orm-cli = craneLib.buildPackage {
           src = pkgs.fetchCrate {
             pname = "sea-orm-cli";
-            version = "2.0.0-rc.18";
-            sha256 = "sha256-5tSvomUB6p1XbQUFJp3+DNzIWAtXgpUDKMoUNQZZ7Ng=";
+            version = "2.0.0-rc.38";
+            sha256 = "sha256-jhBsUn1S+lOQ6upCIbyA0YX1AIdjUA+xPXbHaXrRzrA=";
           };
           strictDeps = true;
         };
