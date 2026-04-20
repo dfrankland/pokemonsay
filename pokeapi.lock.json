@@ -3,73 +3,66 @@
     "sources": {
       "asgiref": {
         "is_direct": false,
-        "sha256": "1db9021efadb0d9512ce8ffaf72fcef601c7b73a8807a1bb2ef143dc6b14846d",
+        "sha256": "e8667a091e69529631969fd45dc268fa79b99c92c5fcdda727757e52146ec133",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/91/be/317c2c55b8bbec407257d45f5c8d1b6867abc76d12043f2d3d58c538a4ea/asgiref-3.11.0-py3-none-any.whl",
-        "version": "3.11.0"
+        "url": "https://files.pythonhosted.org/packages/5c/0a/a72d10ed65068e115044937873362e6e32fab1b7dce0046aeb224682c989/asgiref-3.11.1-py3-none-any.whl",
+        "version": "3.11.1"
       },
       "attrs": {
         "is_direct": false,
-        "sha256": "adcf7e2a1fb3b36ac48d97835bb6d8ade15b8dcce26aba8bf1d14847b57a3373",
+        "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl",
-        "version": "25.4.0"
+        "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+        "version": "26.1.0"
       },
       "coverage": {
         "is_direct": false,
-        "sha256": "e07d9f1a23e9e93ab5c62902833bf3e4b1f65502927379148b6622686223125c",
+        "sha256": "1dcb645d7e34dcbcc96cd7c132b1fc55c39263ca62eb961c064eb3928997363b",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/85/d5/818d0e603685c4a613d56f065a721013e942088047ff1027a632948bdae6/coverage-4.5.4.tar.gz",
-        "version": "4.5.4"
+        "url": "https://files.pythonhosted.org/packages/32/33/7cbfe2bdc6e2f03d6b240d23dc45fdaf3fd270aaf2d640be77b7f16989ab/coverage-7.13.1-cp313-cp313-macosx_11_0_arm64.whl",
+        "version": "7.13.1"
       },
       "django": {
         "is_direct": false,
-        "sha256": "a52ea7fcf280b16f7b739cec38fa6d3f8953a5456986944c3ca97e79882b4e38",
+        "sha256": "cf85067a64250c95d5f9067b056c5eaa80591929f7e16fbcd997746e40d6c45c",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/30/8e/cc23c762c5dcd1d367d73cf006a326e0df2bd0e785cba18b658b39904c1e/Django-3.2.25-py3-none-any.whl",
-        "version": "3.2.25"
+        "url": "https://files.pythonhosted.org/packages/fa/de/f1a7cd896daec85832136ab509d9b2a6daed4939dbe26313af3e95fc5f5e/django-5.2.10-py3-none-any.whl",
+        "version": "5.2.10"
       },
       "django-cachalot": {
         "is_direct": false,
-        "sha256": "4a1ef18d9e3db09871da9933a84d60b129f5806e84186a871145568e68c8a0c7",
+        "sha256": "315da766a5356c7968318326f7b0579f64571ad909f64cad0601f38153ca4e16",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/a6/12/8ad8cb1e1ffaa9e0b1de2e4d08de7a0ffb0ff605301030401d59af3bf247/django_cachalot-2.4.5-py3-none-any.whl",
-        "version": "2.4.5"
+        "url": "https://files.pythonhosted.org/packages/9a/05/f5846fd186189ac0a1deddb9c67450c838e5c8ceceb35b5260c61f622599/django_cachalot-2.8.0-py3-none-any.whl",
+        "version": "2.8.0"
       },
       "django-cors-headers": {
         "is_direct": false,
-        "sha256": "684180013cc7277bdd8702b80a3c5a4b3fcae4abb2bf134dceb9f5dfe300228e",
+        "sha256": "15c7f20727f90044dcee2216a9fd7303741a864865f0c3657e28b7056f61b449",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/45/f1/972b3a183192841b811e4b7496de0a31c09ae1d83a5391743c8ae0cbd86e/django_cors_headers-3.14.0-py3-none-any.whl",
-        "version": "3.14.0"
-      },
-      "django-discover-runner": {
-        "is_direct": false,
-        "sha256": "e05b6da06310ecc857b8950007f45b8968dd5f0b8b718a1095cf466c705fd807",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/73/2e/24b60ba1cb4898aa63c06fa40ddb444907f6f071795c217bfba499a350c7/django_discover_runner-1.0-py2.py3-none-any.whl",
-        "version": "1.0"
+        "url": "https://files.pythonhosted.org/packages/30/d8/19ed1e47badf477d17fb177c1c19b5a21da0fd2d9f093f23be3fb86c5fab/django_cors_headers-4.9.0-py3-none-any.whl",
+        "version": "4.9.0"
       },
       "django-redis": {
         "is_direct": false,
-        "sha256": "1133b26b75baa3664164c3f44b9d5d133d1b8de45d94d79f38d1adc5b1d502e5",
+        "sha256": "20bf0063a8abee567eb5f77f375143c32810c8700c0674ced34737f8de4e36c0",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/c0/4c/9044b873ef1cc136b8057453ea1d75ba1c9f24f6e88c7bbf2c3d083e0caf/django_redis-4.12.1-py3-none-any.whl",
-        "version": "4.12.1"
+        "url": "https://files.pythonhosted.org/packages/7e/79/055dfcc508cfe9f439d9f453741188d633efa9eab90fc78a67b0ab50b137/django_redis-6.0.0-py3-none-any.whl",
+        "version": "6.0.0"
       },
       "djangorestframework": {
         "is_direct": false,
-        "sha256": "eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08",
+        "sha256": "33a59f47fb9c85ede792cbf88bde71893bcda0667bc573f784649521f1102cec",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/ff/4b/3b46c0914ba4b7546a758c35fdfa8e7f017fcbe7f23c878239e93623337a/djangorestframework-3.14.0-py3-none-any.whl",
-        "version": "3.14.0"
+        "url": "https://files.pythonhosted.org/packages/b0/ce/bf8b9d3f415be4ac5588545b5fcdbbb841977db1c1d923f7568eeabe1689/djangorestframework-3.16.1-py3-none-any.whl",
+        "version": "3.16.1"
       },
       "drf-spectacular": {
         "is_direct": false,
-        "sha256": "856e7edf1056e49a4245e87a61e8da4baff46c83dbc25be1da2df77f354c7cb4",
+        "sha256": "d1ee7c9535d89848affb4427347f7c4a22c5d22530b8842ef133d7b72e19b41a",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/fb/66/c2929871393b1515c3767a670ff7d980a6882964a31a4ca2680b30d7212a/drf_spectacular-0.28.0-py3-none-any.whl",
-        "version": "0.28.0"
+        "url": "https://files.pythonhosted.org/packages/32/d9/502c56fc3ca960075d00956283f1c44e8cafe433dada03f9ed2821f3073b/drf_spectacular-0.29.0-py3-none-any.whl",
+        "version": "0.29.0"
       },
       "gunicorn": {
         "is_direct": false,
@@ -87,10 +80,10 @@
       },
       "jsonschema": {
         "is_direct": false,
-        "sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63",
+        "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/bf/9c/8c95d856233c1f82500c2450b8c68576b4cf1c871db3afac5c34ff84e6fd/jsonschema-4.25.1-py3-none-any.whl",
-        "version": "4.25.1"
+        "url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+        "version": "4.26.0"
       },
       "jsonschema-specifications": {
         "is_direct": false,
@@ -106,47 +99,26 @@
         "url": "https://files.pythonhosted.org/packages/8c/7e/e7394eeb49a41cc514b3eb49020223666cbf40d86f5721c2f07871e6d84a/legacy_cgi-2.6.4-py3-none-any.whl",
         "version": "2.6.4"
       },
-      "mimeparse": {
-        "is_direct": false,
-        "sha256": "534ff6feefe1cd03984f444e6415aacc79c0a85f3b868ec41a2fd5003004c31e",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/38/0c/7b02c30765658744acc51876781c580234cb1110296b231a3a524722f9c7/mimeparse-0.1.3.tar.gz",
-        "version": "0.1.3"
-      },
       "packaging": {
         "is_direct": false,
-        "sha256": "29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484",
+        "sha256": "5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl",
-        "version": "25.0"
+        "url": "https://files.pythonhosted.org/packages/7a/c2/920ef838e2f0028c8262f16101ec09ebd5969864e5a64c4c05fad0617c56/packaging-26.1-py3-none-any.whl",
+        "version": "26.1"
       },
-      "psycopg2-binary": {
+      "psycopg": {
         "is_direct": false,
-        "sha256": "e217ce4d37667df0bc1c397fdcd8de5e81018ef305aed9415c3b093faaeb10fb",
+        "sha256": "3e94bc5f4690247d734599af56e51bae8e0db8e4311ea413f801fef82b14a99b",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/35/44/257ddadec7ef04536ba71af6bc6a75ec05c5343004a7ec93006bee66c0bc/psycopg2_binary-2.9.10-cp313-cp313-macosx_14_0_arm64.whl",
-        "version": "2.9.10"
+        "url": "https://files.pythonhosted.org/packages/8c/51/2779ccdf9305981a06b21a6b27e8547c948d85c41c76ff434192784a4c93/psycopg-3.3.2-py3-none-any.whl",
+        "version": "3.3.2"
       },
-      "python-dateutil": {
+      "psycopg-binary": {
         "is_direct": false,
-        "sha256": "961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9",
+        "sha256": "083c2e182be433f290dc2c516fd72b9b47054fcd305cce791e0a50d9e93e06f2",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/36/7a/87837f39d0296e723bb9b62bbb257d0355c7f6128853c78955f57342a56d/python_dateutil-2.8.2-py2.py3-none-any.whl",
-        "version": "2.8.2"
-      },
-      "python-mimeparse": {
-        "is_direct": false,
-        "sha256": "a295f03ff20341491bfe4717a39cd0a8cc9afad619ba44b77e86b0ab8a2b8282",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/26/2e/03bce213a9bf02a2750dcb04e761785e9c763fc11071edc4b447eacbb842/python_mimeparse-1.6.0-py2.py3-none-any.whl",
-        "version": "1.6.0"
-      },
-      "pytz": {
-        "is_direct": false,
-        "sha256": "5ddf76296dd8c44c26eb8f4b6f35488f3ccbf6fbbd7adee0b7262d43f0ec2f00",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/81/c4/34e93fe5f5429d7570ec1fa436f1986fb1f00c3e0f43a589fe2bbcd22c3f/pytz-2025.2-py2.py3-none-any.whl",
-        "version": "2025.2"
+        "url": "https://files.pythonhosted.org/packages/f5/42/0cf38ff6c62c792fc5b55398a853a77663210ebd51ed6f0c4a05b06f95a6/psycopg_binary-3.3.2-cp313-cp313-macosx_11_0_arm64.whl",
+        "version": "3.3.2"
       },
       "pyyaml": {
         "is_direct": false,
@@ -157,10 +129,10 @@
       },
       "redis": {
         "is_direct": false,
-        "sha256": "23c52b208f92b56103e17c5d06bdc1a6c2c0b3106583985a76a18f83b265de2b",
+        "sha256": "a9c74a5c893a5ef8455a5adb793a31bb70feb821c86eccb62eebef5a19c429ec",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/89/f0/8956f8a86b20d7bb9d6ac0187cf4cd54d8065bc9a1a09eb8011d4d326596/redis-7.1.0-py3-none-any.whl",
-        "version": "7.1.0"
+        "url": "https://files.pythonhosted.org/packages/74/3a/95deec7db1eb53979973ebd156f3369a72732208d1391cd2e5d127062a32/redis-7.4.0-py3-none-any.whl",
+        "version": "7.4.0"
       },
       "referencing": {
         "is_direct": false,
@@ -171,31 +143,17 @@
       },
       "rpds-py": {
         "is_direct": false,
-        "sha256": "521807963971a23996ddaf764c682b3e46459b3c58ccd79fefbe16718db43154",
+        "sha256": "e7536cd91353c5273434b4e003cbda89034d67e7710eab8761fd918ec6c69cf8",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/b3/b3/0860cdd012291dc21272895ce107f1e98e335509ba986dd83d72658b82b9/rpds_py-0.29.0-cp313-cp313-macosx_11_0_arm64.whl",
-        "version": "0.29.0"
-      },
-      "six": {
-        "is_direct": false,
-        "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
-        "version": "1.17.0"
+        "url": "https://files.pythonhosted.org/packages/fd/32/55fb50ae104061dbc564ef15cc43c013dc4a9f4527a1f4d99baddf56fe5f/rpds_py-0.30.0-cp313-cp313-macosx_11_0_arm64.whl",
+        "version": "0.30.0"
       },
       "sqlparse": {
         "is_direct": false,
-        "sha256": "99a9f0314977b76d776a0fcb8554de91b9bb8a18560631d6bc48721d07023dcb",
+        "sha256": "12a08b3bf3eec877c519589833aed092e2444e68240a3577e8e26148acc7b1ba",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/25/70/001ee337f7aa888fb2e3f5fd7592a6afc5283adb1ed44ce8df5764070f22/sqlparse-0.5.4-py3-none-any.whl",
-        "version": "0.5.4"
-      },
-      "unipath": {
-        "is_direct": false,
-        "sha256": "09839adcc72e8a24d4f76d63656f30b5a1f721fc40c9bcd79d8c67bdd8b47dae",
-        "type": "url",
-        "url": "https://files.pythonhosted.org/packages/8c/56/de14fb87407047321dad378cb403c6a9adfb7ba394a6f0e9d8839b8b0ef3/Unipath-1.1.tar.gz",
-        "version": "1.1"
+        "url": "https://files.pythonhosted.org/packages/49/4b/359f28a903c13438ef59ebeee215fb25da53066db67b305c125f1c6d2a25/sqlparse-0.5.5-py3-none-any.whl",
+        "version": "0.5.5"
       },
       "uritemplate": {
         "is_direct": false,
@@ -206,29 +164,33 @@
       }
     },
     "targets": {
+      "binary": {
+        "psycopg": [
+          "psycopg-binary"
+        ],
+        "psycopg-binary": []
+      },
       "default": {
         "asgiref": [],
         "attrs": [],
         "coverage": [],
         "django": [
           "asgiref",
-          "pytz",
           "sqlparse"
         ],
         "django-cachalot": [
           "django"
         ],
         "django-cors-headers": [
+          "asgiref",
           "django"
         ],
-        "django-discover-runner": [],
         "django-redis": [
           "django",
           "redis"
         ],
         "djangorestframework": [
-          "django",
-          "pytz"
+          "django"
         ],
         "drf-spectacular": [
           "django",
@@ -252,14 +214,8 @@
           "referencing"
         ],
         "legacy-cgi": [],
-        "mimeparse": [],
         "packaging": [],
-        "psycopg2-binary": [],
-        "python-dateutil": [
-          "six"
-        ],
-        "python-mimeparse": [],
-        "pytz": [],
+        "psycopg": [],
         "pyyaml": [],
         "redis": [],
         "referencing": [
@@ -267,12 +223,10 @@
           "rpds-py"
         ],
         "rpds-py": [],
-        "six": [],
         "sqlparse": [],
-        "unipath": [],
         "uritemplate": []
       }
     }
   },
-  "invalidationHash": "aa5935523403c65dcb4c5282c862d4a8614c4e8d4efc26d782516b5ea981c3ab"
+  "invalidationHash": "9ec636a51dca5ec60335807c6824a2e25f80dcc055abff0cb85ae7d0e3c8fe9e"
 }

@@ -4,12 +4,12 @@
   dream2nix,
   ...
 }: let
-  rev = "29e62db";
+  rev = "88f9f1e5c896d08711fa10d03055146db89d2234";
   src = config.deps.fetchFromGitHub {
     owner = "PokeAPI";
     repo = "pokeapi";
     inherit rev;
-    sha256 = "sha256-VFYj98KQKU4tpNuqedVzf8sAomV0BkIOamHuvaLsPeU=";
+    sha256 = "sha256-+QhuoMzVmm4wIRn2J4HbzW64TCssjzGZkuNh17b9CcM=";
     fetchSubmodules = true;
   };
 in {
@@ -48,19 +48,5 @@ in {
   pip = {
     requirementsFiles = ["${src}/requirements.txt"];
     flattenDependencies = true;
-    overrides =
-      builtins.foldl' (acc: package:
-        acc
-        // {
-          ${package}.buildPythonPackage = {
-            pyproject = true;
-            build-system = [config.deps.python313Packages.setuptools];
-          };
-        }) {
-      } [
-        "coverage"
-        "mimeparse"
-        "unipath"
-      ];
   };
 }
