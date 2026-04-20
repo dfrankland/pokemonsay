@@ -1,4 +1,4 @@
-use image::{DynamicImage, GenericImageView};
+use image::{DynamicImage, GenericImageView, imageops::FilterType};
 
 pub fn crop_transparent_pixels(img: &DynamicImage) -> DynamicImage {
     let (width, height) = img.dimensions();
@@ -32,4 +32,17 @@ pub fn crop_transparent_pixels(img: &DynamicImage) -> DynamicImage {
     let crop_height = max_y - min_y + 1;
 
     img.crop_imm(min_x, min_y, crop_width, crop_height)
+}
+
+pub fn scale_by_integer(img: DynamicImage, factor: u8) -> DynamicImage {
+    let (width, height) = img.dimensions();
+    if factor <= 1 || width == 0 || height == 0 {
+        return img;
+    }
+
+    img.resize_exact(
+        width.saturating_mul(u32::from(factor)),
+        height.saturating_mul(u32::from(factor)),
+        FilterType::Nearest,
+    )
 }

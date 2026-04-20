@@ -125,6 +125,16 @@ struct Opt {
     /// For terminals that support Kitty, iTerm2, or Sixel graphics protocols, defaults to `30`.
     #[arg(long, default_value = {if viuer::get_kitty_support() != viuer::KittySupport::None || viuer::is_iterm_supported() || viuer::is_sixel_supported() { "30" } else { "0" }})]
     max_sprite_dimension: u32,
+
+    /// Integer upscale factor applied before rendering pixel sprites
+    ///
+    /// Improves apparent pixel density, especially on high-DPI screens.
+    ///
+    /// A value of `0` disables sprite upscaling.
+    ///
+    /// Ignored when rendering with Sixel support.
+    #[arg(long, default_value_t = 4)]
+    sprite_upscale_factor: u8,
 }
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -173,6 +183,10 @@ async fn main() -> anyhow::Result<()> {
 
     if opt.crop_sprite_transparent_bg {
         sprite_image = crate::image_util::crop_transparent_pixels(&sprite_image);
+    }
+
+    if !viuer::is_sixel_supported() {
+        sprite_image = crate::image_util::scale_by_integer(sprite_image, opt.sprite_upscale_factor);
     }
 
     let mut viuer_config = viuer::Config {
