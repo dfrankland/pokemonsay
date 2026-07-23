@@ -3,10 +3,10 @@
     "sources": {
       "asgiref": {
         "is_direct": false,
-        "sha256": "e8667a091e69529631969fd45dc268fa79b99c92c5fcdda727757e52146ec133",
+        "sha256": "fe386d1c2bff7259ea95929266d12a8cf9a8b5a1c2598402967d8792e7a7c094",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/5c/0a/a72d10ed65068e115044937873362e6e32fab1b7dce0046aeb224682c989/asgiref-3.11.1-py3-none-any.whl",
-        "version": "3.11.1"
+        "url": "https://files.pythonhosted.org/packages/c0/1b/54f4ad77cd8a584fa70746c47df988e002cf1ee1eba43364d46f87803647/asgiref-3.12.1-py3-none-any.whl",
+        "version": "3.12.1"
       },
       "attrs": {
         "is_direct": false,
@@ -17,9 +17,9 @@
       },
       "coverage": {
         "is_direct": false,
-        "sha256": "1dcb645d7e34dcbcc96cd7c132b1fc55c39263ca62eb961c064eb3928997363b",
+        "sha256": "8f572d989142e0908e6acf57ad1b9b86989ff057c006d13b76c146ec6a20216a",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/32/33/7cbfe2bdc6e2f03d6b240d23dc45fdaf3fd270aaf2d640be77b7f16989ab/coverage-7.13.1-cp313-cp313-macosx_11_0_arm64.whl",
+        "url": "https://files.pythonhosted.org/packages/6b/8e/764c6e116f4221dc7aa26c4061181ff92edb9c799adae6433d18eeba7a14/coverage-7.13.1-cp314-cp314-macosx_11_0_arm64.whl",
         "version": "7.13.1"
       },
       "django": {
@@ -101,10 +101,10 @@
       },
       "packaging": {
         "is_direct": false,
-        "sha256": "5d9c0669c6285e491e0ced2eee587eaf67b670d94a19e94e3984a481aba6802f",
+        "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/7a/c2/920ef838e2f0028c8262f16101ec09ebd5969864e5a64c4c05fad0617c56/packaging-26.1-py3-none-any.whl",
-        "version": "26.1"
+        "url": "https://files.pythonhosted.org/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl",
+        "version": "26.2"
       },
       "psycopg": {
         "is_direct": false,
@@ -115,24 +115,24 @@
       },
       "psycopg-binary": {
         "is_direct": false,
-        "sha256": "083c2e182be433f290dc2c516fd72b9b47054fcd305cce791e0a50d9e93e06f2",
+        "sha256": "c749770da0947bc972e512f35366dd4950c0e34afad89e60b9787a37e97cb443",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/f5/42/0cf38ff6c62c792fc5b55398a853a77663210ebd51ed6f0c4a05b06f95a6/psycopg_binary-3.3.2-cp313-cp313-macosx_11_0_arm64.whl",
+        "url": "https://files.pythonhosted.org/packages/5a/79/91649d94c8d89f84af5da7c9d474bfba35b08eb8f492ca3422b08f0a6427/psycopg_binary-3.3.2-cp314-cp314-macosx_11_0_arm64.whl",
         "version": "3.3.2"
       },
       "pyyaml": {
         "is_direct": false,
-        "sha256": "2283a07e2c21a2aa78d9c4442724ec1eb15f5e42a723b99cb3d822d48f5f7ad1",
+        "sha256": "34d5fcd24b8445fadc33f9cf348c1047101756fd760b4dacb5c3e99755703310",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/b1/16/95309993f1d3748cd644e02e38b75d50cbc0d9561d21f390a76242ce073f/pyyaml-6.0.3-cp313-cp313-macosx_11_0_arm64.whl",
+        "url": "https://files.pythonhosted.org/packages/bd/9c/4d95bb87eb2063d20db7b60faa3840c1b18025517ae857371c4dd55a6b3a/pyyaml-6.0.3-cp314-cp314-macosx_11_0_arm64.whl",
         "version": "6.0.3"
       },
       "redis": {
         "is_direct": false,
-        "sha256": "a9c74a5c893a5ef8455a5adb793a31bb70feb821c86eccb62eebef5a19c429ec",
+        "sha256": "47daa35a058c23468d6437f17a8c76882cb316b838ef763036af99b96cedd743",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/74/3a/95deec7db1eb53979973ebd156f3369a72732208d1391cd2e5d127062a32/redis-7.4.0-py3-none-any.whl",
-        "version": "7.4.0"
+        "url": "https://files.pythonhosted.org/packages/fd/0a/c2345ebf1ebe70840ce3f6c6ee612f8fa749cfbd1b03069c53bf0c62aaad/redis-8.0.1-py3-none-any.whl",
+        "version": "8.0.1"
       },
       "referencing": {
         "is_direct": false,
@@ -143,10 +143,10 @@
       },
       "rpds-py": {
         "is_direct": false,
-        "sha256": "e7536cd91353c5273434b4e003cbda89034d67e7710eab8761fd918ec6c69cf8",
+        "sha256": "d7469697dce35be237db177d42e2a2ee26e6dcc5fc052078a6fefabd288c6edd",
         "type": "url",
-        "url": "https://files.pythonhosted.org/packages/fd/32/55fb50ae104061dbc564ef15cc43c013dc4a9f4527a1f4d99baddf56fe5f/rpds_py-0.30.0-cp313-cp313-macosx_11_0_arm64.whl",
-        "version": "0.30.0"
+        "url": "https://files.pythonhosted.org/packages/ba/54/f785cc3d3f60839ca57a5af4927a9f347b07b2799c373fc20f7949f87c7e/rpds_py-2026.6.3-cp314-cp314-macosx_11_0_arm64.whl",
+        "version": "2026.6.3"
       },
       "sqlparse": {
         "is_direct": false,
@@ -228,5 +228,5 @@
       }
     }
   },
-  "invalidationHash": "9ec636a51dca5ec60335807c6824a2e25f80dcc055abff0cb85ae7d0e3c8fe9e"
+  "invalidationHash": "71ca0621a0986742aabe68922892031c96a279a5caf2b8dd0a795e457550c24d"
 }
