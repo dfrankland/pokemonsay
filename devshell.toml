@@ -1,5 +1,19 @@
 [devshell]
-packages = ["alejandra", "cargo-edit", "cargo-release", "taplo"]
+packages = [
+  "alejandra",
+  "cargo-edit",
+  "cargo-release",
+  "curl",
+  "gnused",
+  "jq",
+  "taplo",
+]
+
+[[commands]]
+name = "update-pokeapi"
+category = "maintenance"
+help = "Bump PokeAPI and its sprites to the latest master (or a given commit)"
+command = '"$PRJ_ROOT/scripts/update-pokeapi.sh" "$@"'
 
 [[commands]]
 name = "build-all"

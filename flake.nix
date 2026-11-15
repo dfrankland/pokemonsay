@@ -4,8 +4,28 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    dream2nix.url = "github:nix-community/dream2nix";
-    dream2nix.inputs.nixpkgs.follows = "nixpkgs";
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.uv2nix.follows = "uv2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # The rev is pinned so that a bare `nix flake update` cannot move PokeAPI
+    # without also moving the sprites fetched in pokeapi.nix. Bump both with
+    # `update-pokeapi` from the devshell.
+    pokeapi = {
+      url = "github:PokeAPI/pokeapi/5cbeb3f3eb55a9b86da52c4869336f9d61fdd6d7";
+      flake = false;
+    };
     crane.url = "github:ipetkov/crane";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
@@ -16,7 +36,6 @@
 
   outputs = inputs @ {
     flake-parts,
-    dream2nix,
     crane,
     ...
   }:
@@ -24,7 +43,8 @@
       imports = [
         flake-parts.flakeModules.easyOverlay
       ];
-      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
+      # No x86_64-darwin: nixpkgs dropped it in 26.11.
+      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin"];
       perSystem = {
         config,
         self',
@@ -41,16 +61,9 @@
                 extensions = ["rust-src"];
               })
         );
-        pokeapi = dream2nix.lib.evalModules {
-          packageSets.nixpkgs = inputs.nixpkgs.legacyPackages.${system};
-          modules = [
-            ./pokeapi.nix
-            {
-              paths.projectRoot = ./.;
-              paths.projectRootFile = "flake.nix";
-              paths.package = ./.;
-            }
-          ];
+        pokeapi = pkgs.callPackage ./pokeapi.nix {
+          pokeapiSrc = inputs.pokeapi;
+          inherit (inputs) pyproject-nix uv2nix pyproject-build-systems;
         };
         pokeapi-full = pkgs.stdenv.mkDerivation {
           name = "pokeapi-full";
@@ -77,8 +90,8 @@
         sea-orm-cli = craneLib.buildPackage {
           src = pkgs.fetchCrate {
             pname = "sea-orm-cli";
-            version = "2.0.0";
-            sha256 = "sha256-zapXno3UPgUMsohUxXpldBPScyqYhesR6/9dTXbFsUA=";
+            version = "2.0.4";
+            sha256 = "sha256-jQda7XP8w8SCqlmCcyf3N3apaMHBrbdVgMTCmqBa3c4=";
           };
           strictDeps = true;
         };
